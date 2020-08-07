@@ -1,7 +1,19 @@
 import React from 'react';
 import TableBody from './TableBody';
+import API from '../utils/API';
 
 class Table extends React.Component {
+  // set the state to an array that will receive employee data from db
+  state = {
+    employees: [],
+  };
+
+  componentDidMount() {
+    API.getEmployeeInfo().then((res) => {
+      console.log(res);
+      this.setState({ employees: res.data });
+    });
+  }
   render() {
     return (
       <table className='table table-dark'>
@@ -12,7 +24,7 @@ class Table extends React.Component {
             <th scope='col'>Job Title</th>
           </tr>
         </thead>
-        <TableBody />
+        <TableBody employees={this.state.employees} />
       </table>
     );
   }

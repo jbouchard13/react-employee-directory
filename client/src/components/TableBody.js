@@ -6,6 +6,13 @@ class TableBody extends React.Component {
     return (
       <tbody>
         <TableRow firstName='First' lastName='Last' jobTitle='Job' />
+        {this.props.employees.map((employee) => (
+          <TableRow
+            firstName={employee.firstName}
+            lastName={employee.lastName}
+            jobTitle={employee.jobTitle}
+          />
+        ))}
       </tbody>
     );
   }

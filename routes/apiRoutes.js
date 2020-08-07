@@ -2,18 +2,18 @@ const router = require('express').Router();
 const Employee = require('../models/Employee');
 
 // get request to retrieve all employee data
-router.get('/employees', (req, res) => {
-  Employee.find()
+router.get('/api/employees', (req, res) => {
+  Employee.find({})
     .then((employees) => {
       res.status(200).json(employees);
     })
     .catch((err) => {
-      res.status(500).json(err);
+      res.status(500).end();
     });
 });
 
 // get request to retrieve employees by job title
-router.get('/employees/:jobTitle', (req, res) => {
+router.get('/api/employees/:jobTitle', (req, res) => {
   Employee.find({
     jobTitle: req.params.jobTitle,
   })
@@ -26,11 +26,29 @@ router.get('/employees/:jobTitle', (req, res) => {
 });
 
 // post request to add employees
-router.post('/employees', (req, res) => {
-  console.log(req);
+router.post('/api/employees', (req, res) => {
+  const newEmployee = req.body;
+  console.log(newEmployee);
+  Employee.save(newEmployee)
+    .then((employees) => {
+      res.status(200).json(employees);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 });
 
 // delete request to remove employees
-router.delete('/employees/:employeeId', (req, res) => {});
+router.delete('/api/employees/:employeeId', (req, res) => {
+  Employee.deleteOne({
+    id: req.params.employeeId,
+  })
+    .then((employees) => {
+      res.status(200).json(employees);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

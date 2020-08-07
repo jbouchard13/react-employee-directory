@@ -9,14 +9,14 @@ export default {
   },
   // get employees by job title
   getEmployeeByJobTitle: (jobTitle) => {
-    return axios.get(`/api/employees/${jobTitle}`);
+    return axios.get(`http://localhost:8080/api/employees/${jobTitle}`);
   },
   // add new employee
   addNewEmployee: (employeeData) => {
-    return axios.post('/api/employees', employeeData);
+    return axios.post('http://localhost:8080/api/employees', employeeData);
   },
   // delete employee
   deleteEmployee: (employeeId) => {
-    return axios.delete(`/api/employees/${employeeId}`);
+    return axios.delete(`http://localhost:8080/api/employees/${employeeId}`);
   },
 };

@@ -1,28 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const logger = require('morgan');
-
 const apiRoutes = require('./routes/apiRoutes');
-
-const PORT = process.env.PORT || 8080;
-
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-app.use(logger);
+// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// api routes
-app.use('/api', apiRoutes);
+app.use(apiRoutes);
 
-// app.use(express.static('public'));
-// app.use(express.static('src'));
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/budget', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/employee', {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+app.listen(PORT, function () {
+  console.log(`Server now listening on PORT ${PORT}!`);
 });
