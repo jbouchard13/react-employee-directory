@@ -10,7 +10,6 @@ class Table extends React.Component {
 
   componentDidMount() {
     API.getEmployeeInfo().then((res) => {
-      console.log(res);
       this.setState({ employees: res.data });
     });
   }

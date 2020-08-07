@@ -5,7 +5,6 @@ class TableBody extends React.Component {
   render() {
     return (
       <tbody>
-        <TableRow firstName='First' lastName='Last' jobTitle='Job' />
         {this.props.employees.map((employee) => (
           <TableRow
             firstName={employee.firstName}
