@@ -8,7 +8,7 @@ class Table extends React.Component {
   state = {
     employees: [],
     sortedEmployees: [],
-    sortOrder: '',
+    sortOrder: 'ascending',
   };
   // get employee data from backend db
   getEmployeeData() {
@@ -21,22 +21,69 @@ class Table extends React.Component {
     this.getEmployeeData();
   }
 
-  buttonTest() {
-    alert('TESTING');
-  }
-
   sortByFirstName() {
-    // set the state to be an array of employees
-    // sorted alphabetically by first name
-    alert('asdf');
-    this.setState({ employees: [] });
+    // sort in ascending or descending order depending on the setOrder state
+    if (this.state.sortOrder === 'ascending') {
+      // uses array.sort method to compare state object properties
+      let ascendingFirstNameSorted = this.state.employees.sort((a, b) =>
+        a.firstName > b.firstName ? 1 : -1
+      );
+      // set the state to the new first name sorted array
+      this.setState({
+        employees: ascendingFirstNameSorted,
+        sortOrder: 'descending',
+      });
+    } else if (this.state.sortOrder === 'descending') {
+      // uses array.sort method to compare state object properties
+      let descendingFirstNameSorted = this.state.employees.sort((a, b) =>
+        a.firstName < b.firstName ? 1 : -1
+      );
+      this.setState({
+        employees: descendingFirstNameSorted,
+        sortOrder: 'ascending',
+      });
+    }
   }
 
   sortByLastName() {
-    alert('lastname');
+    if (this.state.sortOrder === 'ascending') {
+      let ascendingLastNameSorted = this.state.employees.sort((a, b) =>
+        a.lastName > b.lastName ? 1 : -1
+      );
+      this.setState({
+        employees: ascendingLastNameSorted,
+        sortOrder: 'descending',
+      });
+    } else if (this.state.sortOrder === 'descending') {
+      let descendingLastNameSorted = this.state.employees.sort((a, b) =>
+        a.lastName < b.lastName ? 1 : -1
+      );
+      this.setState({
+        employees: descendingLastNameSorted,
+        sortOrder: 'ascending',
+      });
+    }
   }
 
-  sortByJob() {}
+  sortByJob() {
+    if (this.state.sortOrder === 'ascending') {
+      let ascendingJobTitleSorted = this.state.employees.sort((a, b) =>
+        a.jobTitle > b.jobTitle ? 1 : -1
+      );
+      this.setState({
+        employees: ascendingJobTitleSorted,
+        sortOrder: 'descending',
+      });
+    } else if (this.state.sortOrder === 'descending') {
+      let descendingJobTitleSorted = this.state.employees.sort((a, b) =>
+        a.jobTitle < b.jobTitle ? 1 : -1
+      );
+      this.setState({
+        employees: descendingJobTitleSorted,
+        sortOrder: 'ascending',
+      });
+    }
+  }
 
   render() {
     return (
@@ -62,7 +109,12 @@ class Table extends React.Component {
               Last Name
             </th>
             <th scope='col'>
-              <Button buttonText='Sort' handleSort={this.buttonTest} />
+              <Button
+                buttonText='Sort'
+                handleSort={() => {
+                  this.sortByJob();
+                }}
+              />
               Job Title
             </th>
           </tr>
