@@ -31,7 +31,7 @@ router.post('/api/employees', (req, res) => {
   console.log(newEmployee);
   Employee.create(newEmployee)
     .then((employees) => {
-      res.status(200).json(employees);
+      res.status(200).json({ message: 'Employee added successfully' });
     })
     .catch((err) => {
       res.status(500).json(err);

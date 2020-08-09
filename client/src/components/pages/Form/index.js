@@ -20,7 +20,13 @@ class Form extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let newEmployee = this.state;
-    API.addNewEmployee(newEmployee);
+    API.addNewEmployee(newEmployee)
+      .then((response) => {
+        alert(response.data.message);
+      })
+      .catch(() => {
+        alert('An error occured, please try again');
+      });
   }
 
   render() {
