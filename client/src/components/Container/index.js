@@ -1,7 +1,7 @@
 // component for bootstrap container
 
 import React from 'react';
-import Table from './Table';
+import Table from '../Table';
 
 class Container extends React.Component {
   render() {
