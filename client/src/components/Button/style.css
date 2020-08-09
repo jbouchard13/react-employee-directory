@@ -1,7 +1,10 @@
-.left {
-  float: left;
-}
-.button-color {
+.button {
+  width: 33.333333%;
   color: white;
   background-color: rebeccapurple;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.button:hover {
+  color: gold;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import TableBody from '../../TableBody';
 import API from '../../../utils/API';
 import Button from '../../Button';
+import './style.css';
 
 class Table extends React.Component {
   // set the state to an array that will receive employee data from db
@@ -87,40 +88,37 @@ class Table extends React.Component {
 
   render() {
     return (
-      <table className='table table-dark'>
-        <thead>
-          <tr>
-            <th scope='col'>
-              <Button
-                buttonText='Sort'
-                handleSort={() => {
-                  this.sortByFirstName();
-                }}
-              />
-              First Name
-            </th>
-            <th scope='col'>
-              <Button
-                buttonText='Sort'
-                handleSort={() => {
-                  this.sortByLastName();
-                }}
-              />
-              Last Name
-            </th>
-            <th scope='col'>
-              <Button
-                buttonText='Sort'
-                handleSort={() => {
-                  this.sortByJob();
-                }}
-              />
-              Job Title
-            </th>
-          </tr>
-        </thead>
-        <TableBody employees={this.state.employees} />
-      </table>
+      <div>
+        <h3>Employees</h3>
+        <Button
+          buttonText='Sort'
+          handleSort={() => {
+            this.sortByFirstName();
+          }}
+        />
+        <Button
+          buttonText='Sort'
+          handleSort={() => {
+            this.sortByLastName();
+          }}
+        />
+        <Button
+          buttonText='Sort'
+          handleSort={() => {
+            this.sortByJob();
+          }}
+        />
+        <table className='table table-dark table-striped table-bordered employees'>
+          <thead>
+            <tr>
+              <th scope='col'>First Name</th>
+              <th scope='col'>Last Name</th>
+              <th scope='col'>Job Title</th>
+            </tr>
+          </thead>
+          <TableBody employees={this.state.employees} />
+        </table>
+      </div>
     );
   }
 }

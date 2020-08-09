@@ -7,3 +7,16 @@
   text-decoration: none;
   color: white;
 }
+
+.link:hover {
+  color: lightgrey;
+}
+
+.link-active {
+  text-decoration: none;
+  color: gold;
+}
+
+.link-active:hover {
+  color: yellow;
+}
