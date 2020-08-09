@@ -1,7 +1,7 @@
 import React from 'react';
-import TableBody from '../TableBody';
-import API from '../../utils/API';
-import Button from '../Button';
+import TableBody from '../../TableBody';
+import API from '../../../utils/API';
+import Button from '../../Button';
 
 class Table extends React.Component {
   // set the state to an array that will receive employee data from db
