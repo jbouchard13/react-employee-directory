@@ -29,7 +29,7 @@ router.get('/api/employees/:jobTitle', (req, res) => {
 router.post('/api/employees', (req, res) => {
   const newEmployee = req.body;
   console.log(newEmployee);
-  Employee.save(newEmployee)
+  Employee.create(newEmployee)
     .then((employees) => {
       res.status(200).json(employees);
     })
