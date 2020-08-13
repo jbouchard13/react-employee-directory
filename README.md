@@ -22,6 +22,8 @@
 
 ### Demo GIF
 
+![react-directory](https://user-images.githubusercontent.com/61129844/90183412-744dd900-dd81-11ea-8d79-5ef01a49bacd.gif)
+
 ### Description
 
 Use this full stack React app to sort and keep track of your employees. Users can sort the employee results by their first or last name, as well as by job titles. The buttons on top of the table of employees allow the sorting functions to run when clicked. New employees can also be added to the database under the Employee Management page. The app with a React front end as well as an Express backend linked to a MongoDB using Mongoose. The initial data was seeded from a seed file with information about the employees on the show The Office.
