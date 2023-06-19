@@ -1,0 +1,9 @@
+.del-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.del-btn-wrapper button {
+  background-color: red;
+  width: 30px;
+}
