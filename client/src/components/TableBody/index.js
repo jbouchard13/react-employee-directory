@@ -1,5 +1,5 @@
-import React from 'react';
-import TableRow from '../TableRow';
+import React from "react";
+import TableRow from "../TableRow";
 
 class TableBody extends React.Component {
   render() {
@@ -10,7 +10,9 @@ class TableBody extends React.Component {
             firstName={employee.firstName}
             lastName={employee.lastName}
             jobTitle={employee.jobTitle}
+            id={employee._id}
             key={employee._id}
+            deleteEmployee={this.props.deleteEmployee}
           />
         ))}
       </tbody>

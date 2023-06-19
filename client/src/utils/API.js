@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
 // file to handle data retrieval from database of employees
 
 export default {
   // get all employees
   getEmployeeInfo: () => {
-    return axios.get('/api/employees');
+    return axios.get("/api/employees");
   },
   // get employees by job title
   getEmployeeByJobTitle: (jobTitle) => {
@@ -13,7 +13,7 @@ export default {
   },
   // add new employee
   addNewEmployee: (employeeData) => {
-    return axios.post('/api/employees', employeeData);
+    return axios.post("/api/employees", employeeData);
   },
   // delete employee
   deleteEmployee: (employeeId) => {
